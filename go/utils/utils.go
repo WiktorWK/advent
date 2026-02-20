@@ -13,7 +13,9 @@ import (
 func GetInput(year int, day int) (string, error) {
 	client := &http.Client{Timeout: 10 * time.Second}
 
-	req, errReq := http.NewRequest("GET", "https://adventofcode.com/2025/day/1/input", nil)
+	url := fmt.Sprintf("https://adventofcode.com/%v/day/%v/input", year, day)
+
+	req, errReq := http.NewRequest("GET", url, nil)
 	if errReq != nil {
 		return "", errReq
 	}
